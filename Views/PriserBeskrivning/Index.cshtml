@@ -1,0 +1,35 @@
+﻿@model List<PriserBeskrivning>
+@{
+    Layout = "_Layout";
+}
+<!-- (VG) Sidan för andra tabellen (PriserBeskrivning) -->
+<div class="container-fluid m-0 p-0">
+    <div class="justify-content-center background-img justify-content-center align-items-center flex-column">
+        <table class="table w-50">
+            <h1 class="text-white bg-black">Våra olika typer av priser</h1>
+            <thead>
+                <tr>
+                    <td><h3>Beskrivning</h3></td>
+                    <td><h3>Läs mer om våra priser</h3></td>
+                    <td><h3>Ändra</h3></td>
+                    <td><h3>Radera</h3></td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop som loopar igenom databasen (PriserBeskrivning) och visas på sidan.  -->
+                @foreach (var PriserBeskrivning in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => PriserBeskrivning.Beskrivning)</td> <!-- Beskrivning från PrisBeskrivning visas upp i tabellen. -->
+                        <td><a asp-action="InfoPriser" asp-route-id=@PriserBeskrivning.Id>Läs mer</a></td>
+                        <td><a asp-action="Edit" asp-route-id=@PriserBeskrivning.Id>Ändra</a></td>
+                        <td><a asp-action="DeletePriser" asp-route-id=@PriserBeskrivning.Id>Radera</a></td>
+                    </tr>
+                }
+            <td>
+                <a asp-action="CreatePriser">Lägg till fler prisklasser</a>
+            </td>
+            </tbody>
+        </table>
+    </<div>
+</div>

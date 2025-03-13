@@ -1,0 +1,45 @@
+﻿@model List<Examinationsuppgift_ASP.Models.Priser>
+@{
+    Layout = "_Layout";
+}
+
+<!-- Tabell innehållande databasens information. -->
+<div class="container-fluid m-0 p-0">
+    <div class="justify-content-center background-img justify-content-center align-items-center flex-column">
+        <table class="table w-50">
+            <h1 class="text-white bg-black">Priser</h1>
+            <thead>
+                <tr>
+                    <td><h3>Namn</h3></td>
+                    <td><h3>Pris</h3></td>
+                    <td><h3>Beskrivning</h3></td>
+                    <td><h3>Läser mer om våra priser</h3></td>
+                    <td><h3>Ändra</h3></td>
+                    <td><h3>Radera</h3></td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop som loopar igenom databasen och visas på sidan.  -->
+                @foreach (var Priser in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => Priser.Namn)</td> <!-- Namn från klassen priser visas upp i tabellen. -->
+                        <td>@Html.DisplayFor(modelItem => Priser.Pris)</td>
+                        <td>@Html.DisplayFor(modelItem => Priser.priserBeskrivning.Beskrivning)</td> <!-- Hämtar Beskrivning från tabellen PriserBeskrivning -->
+                        <td><a asp-action="InfoPriser" asp-route-id=@Priser.Id>Läs mer</a></td>
+                        <td><a asp-action="Edit" asp-route-id=@Priser.Id>Ändra</a></td>
+                        <td><a asp-action="DeletePriser" asp-route-id=@Priser.Id>Radera</a></td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        <a asp-action="CreatePriser">Lägg till fler prisklasser</a>
+                    </td>
+                    <td>
+                        <a asp-action="Index" asp-controller="PriserBeskrivning">Våra olika typer av priser</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿<!--Gemensam layout för alla HTML-filer inom view -->
+<!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary p-0 shadow bg-white rounded">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="~/bilder/SannaKtransparent.png" class="img-logo-w" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <!-- If-statement som kollar om användaren är authenticated, om ja så "Logga ut" else, "Logga in" -->
+                        <a asp-action="Index" asp-controller="Home" class="nav-link active" aria-current="page">Hem</a>
+                        @{
+                            if (User.Identity.IsAuthenticated == true)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="SignOutUser">Logga ut</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Logga in</a>
+                                </li>
+                            }
+                        }
+                        <a class="nav-link active" aria-current="page" asp-action="Index" asp-controller="Priser">Priser</a>
+                        <a class="nav-link active" aria-current="page" asp-controller="MinSida" asp-action="Index">Min Sida</a>         <!--Länk till min sida, ej inloggad returnUrl till User-sidan-->
+                    </div>
+                </div>
+            </div>
+        </nav>
+        </header>
+        @RenderBody()
+
+    </body>
+</html>
+

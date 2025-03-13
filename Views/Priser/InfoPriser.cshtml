@@ -1,0 +1,23 @@
+﻿@model Examinationsuppgift_ASP.Models.Priser
+@{
+    Layout = "_Layout";
+}
+
+<!-- Information om Priserna -->
+<div class="container-fluid d-flex justify-content-center align-items-center m-2 p-1">
+    <div class="shadow-sm p-3 mb-5 bg-white rounded m-2 p-2">
+        <h1 class="m-2 p-2">Information om de olika priserna</h1>
+        <div class="m-2 p-2">
+            <h3 class="m-0 p-0">Namn</h3>
+            @Html.DisplayFor(model => model.Namn)
+        </div>
+        <div class ="m-2 p-2">
+            <h3 class="m-0 p-0">Pris</h3>
+            @Html.DisplayFor(model => model.Pris)
+        </div>
+        <div class="m-2 p-2">
+            <h3 class="m-0 p-0">Beskrivning</h3>
+            @Html.DisplayFor(model => model.priserBeskrivning.Beskrivning) <!-- Skriver ut Beskrivningen på sidan -->
+        </div>
+    </div>
+</div>

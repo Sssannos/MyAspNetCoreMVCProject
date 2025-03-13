@@ -1,0 +1,29 @@
+﻿@model Examinationsuppgift_ASP.Models.Priser
+@{
+    Layout = "_Layout";
+}
+
+<!-- (Delete) Sidan för att ta bort från Priser listan -->
+<div class="container-fluid d-flex justify-content-center align-items-center m-2 p-1 vh-100">
+    <div class="w-25 justify-content-center align-items-center flex-column shadow-sm p-3 mb-5 bg-white rounded m-2 p-2">
+        <h1 class="m-2 p-2">Radera</h1>
+        <div class="m-2 p-2">
+            <h3 class="m-0 p-0">Namn</h3>
+            @Html.DisplayFor(model => model.Namn)
+        </div>
+        <div class="m-2 p-2">
+            <h3 class="m-0 p-0">Pris</h3>
+            @Html.DisplayFor(model => model.Pris)
+        </div>
+        <div class="m-2 p-2">
+            <h3 class="m-0 p-0">Beskrivning</h3>
+            @Html.DisplayFor(model => model.priserBeskrivning.Beskrivning) <!-- Skriver ut Beskrivningen på sidan -->
+        </div>
+        <form asp-action="Deletepriser" class="m-2 p-2">
+            <input type="hidden" asp-for="Id" />
+            <div>
+                <input type="submit" value="Radera" class="btn btn-primary btn-sm" />
+            </div>
+        </form>
+    </div>
+</div>

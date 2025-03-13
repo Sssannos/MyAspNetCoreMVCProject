@@ -1,0 +1,48 @@
+﻿@model Examinationsuppgift_ASP.Models.Priser
+@{
+    Layout = "_Layout";
+}
+
+<!-- Formuläret för att lägga till fler prisklasser i "Priser"-sidan -->
+<!-- <h1>Lägg till fler prisklasser</h1>
+<form asp-action="CreatePriser">
+    <div>
+        Namn: <input asp-for="Namn"/>
+    </div>
+    <div>
+        Pris: <input asp-for="Pris" />
+    </div>
+    <div>
+        Beskrivning: <input asp-for="Beskrivning" />
+    </div>
+    <div>
+        <input type="submit" value="Lägg till"/>
+    </div>
+</form>-->
+
+<!-- Formuläret för att lägga till fler prisklasser i "Priser"-sidan -->
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="w-25 shadow p-3 mb-5 bg-white rounded">
+        <h2>Lägg till fler prisklasser</h2>
+        <form asp-action="CreatePriser">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Namn</label>
+                <input asp-for="Namn" class="form-control" id="exampleFormControlInput1" placeholder="Skriv in namnet.." />
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Pris</label>
+                <input asp-for="Pris" class="form-control" id="exampleFormControlInput1" placeholder="Pris för besök.." />
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Beskrivning</label>
+                <select asp-for="PriserBeskrivningId" asp-items="ViewBag.PriserBeskrivningId" class="form-control" id="exampleFormControlInput1" placeholder="Beskriv det priset avser.."></select> <!-- Visar upp innehållet i Viewbag, d.v.s. en drop-down på CreatePriser-sidan. -->
+            </div>
+            <div>
+                <input type="submit" value="Lägg till" class="btn btn-primary btn-sm" />
+            </div>
+        </form>
+    </div>
+ </div>
+
+
+

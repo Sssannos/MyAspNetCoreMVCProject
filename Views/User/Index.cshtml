@@ -1,0 +1,26 @@
+﻿@model UserModel
+@{
+    Layout = "_Layout";
+}
+
+<form asp-action="Index" asp-route-returnurl="@ViewData["ReturnUrl"]"> <!-- Returnerar användaren till denna sida med hjälp av ReturnUrl om försöker nå Min sida utan att var inloggad. -->
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100">
+        <div class="d-flex flex-column justify-content-center align-items-center shadow p-3 mb-5 bg-white rounded container-w">
+            <div class="mb-3 d-flex flex-column width-logIn">
+                <label for="exampleFormControlInput1" class="form-label">Användarnamn</label>
+                @Html.EditorFor(m => m.UserName)
+            </div>
+            <div class="mb-3 d-flex flex-column width-logIn">
+                <label for="exampleFormControlInput1" class="form-label">Logga ut</label>
+                @Html.PasswordFor(m => m.Password)
+            </div>
+            <p>
+                @ViewBag.ErrorMessage
+            </p>
+            <div class="d-flex flex-column justify-content-center btn-div-h">
+                <input type="submit" value="Logga in" class="btn btn-primary btn-sm btn-w" />
+                <a asp-action="SignOutUser">Logga ut</a>
+            </div>
+        </div>
+    </div>
+</form>

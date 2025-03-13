@@ -1,0 +1,20 @@
+﻿@model Examinationsuppgift_ASP.Models.PriserBeskrivning
+@{
+    Layout = "_Layout";
+}
+
+<!-- Lägger till fler beskrivningar i databasen för PriserBeskrivning. -->
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+    <div class="w-25 shadow p-3 mb-5 bg-white rounded">
+        <h2>Lägg till fler prisklasser</h2>
+        <form asp-action="CreatePriser">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Beskrivning</label>
+                <input asp-for="Beskrivning" class="form-control" id="exampleFormControlInput1" placeholder="Skriv in namnet.." />
+            </div>
+            <div>
+                <input type="submit" value="Lägg till" class="btn btn-primary btn-sm" />
+            </div>
+        </form>
+    </div>
+</div>

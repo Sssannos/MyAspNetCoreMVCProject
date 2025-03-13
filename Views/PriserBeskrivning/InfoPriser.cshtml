@@ -1,0 +1,23 @@
+﻿@model Examinationsuppgift_ASP.Models.PriserBeskrivning
+@{
+    Layout = "_Layout";
+}
+
+<!-- Information om prisklassen -->
+<div class="container-fluid d-flex justify-content-center align-items-center w-25">
+    <div class="justify-content-center align-items-center flex-column shadow-sm p-3 mb-5 bg-white rounded m-2 p-2">
+        <div class="m-2 p-2">
+            <h3 class="m-0 p-0">
+                Beskrivning
+            </h3>
+            <h4 class="font-weight-bold">
+                @Html.DisplayFor(model => model.Beskrivning) <!-- Skriver ut Beskrivningen på sidan -->
+            </h4>
+            <p class="mt-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sem nunc, lobortis condimentum mi in, pulvinar pellentesque urna. Proin porta cursus orci non ornare. 
+                Proin vitae elit pretium, lacinia ex ut, aliquet lacus. Pellentesque tellus neque, egestas quis bibendum ut, ullamcorper sit amet enim. 
+                Nam viverra arcu sit amet tempus placerat. Fusce pharetra elit et tincidunt efficitur. Morbi vitae fermentum dolor. Donec eleifend porttitor libero, et viverra nunc.
+            </p>
+        </div>
+    </div>
+</div>
